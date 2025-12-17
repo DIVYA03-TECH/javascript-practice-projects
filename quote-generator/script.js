@@ -25,9 +25,31 @@ let quotes = [
   "Opportunities don't happen. You create them. - Chris Grosser",
   "Try not to become a person of success, but rather try to become a person of value. - Albert Einstein"
 ];
-const button=document.querySelector("button")
-button.addEventListener('click',()=>{
-    const head=document.querySelector("h1")
-    const index=Math.floor(Math.random()*25)
-    head.textContent=quotes[index]
-})
+
+const button = document.querySelector("#btn");
+const head = document.querySelector("h1");
+const copyBtn = document.querySelector("#copy-btn");
+const tweetBtn = document.querySelector("#tweet-btn");
+
+// Generate random quote
+button.addEventListener('click', () => {
+    const index = Math.floor(Math.random() * quotes.length);
+    head.textContent = quotes[index];
+});
+
+// Copy quote to clipboard
+copyBtn.addEventListener('click', () => {
+    const quoteText = head.textContent;
+    navigator.clipboard.writeText(quoteText);
+    copyBtn.textContent = "Copied!";
+    setTimeout(() => {
+        copyBtn.textContent = "Copy Quote";
+    }, 2000);
+});
+
+// Tweet quote
+tweetBtn.addEventListener('click', () => {
+    const quote = head.textContent;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quote)}`;
+    window.open(tweetUrl, '_blank');
+});

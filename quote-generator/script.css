@@ -74,3 +74,47 @@ h1 {
         font-size: 1rem;
     }
 }
+#buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+#buttons button {
+    background-color: #1f6feb;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#buttons button:hover {
+    background-color: #1a5cd7;
+    transform: translateY(-1px);
+}
+
+#buttons button:active {
+    transform: translateY(0);
+}
+
+#copy-btn {
+    background-color: #238636;
+}
+
+#copy-btn:hover {
+    background-color: #2ea043;
+}
+
+#tweet-btn {
+    background-color: #1da1f2;
+}
+
+#tweet-btn:hover {
+    background-color: #1a8cd8;
+}
